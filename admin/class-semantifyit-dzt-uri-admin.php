@@ -73,7 +73,7 @@ class Semantifyit_Dzt_Uri_Admin {
 		 * class.
 		 */
 
-        $curScreenId = get_current_screen()->id;
+    $curScreenId = get_current_screen()->id;
 		$post_types = get_post_types(array(
 			'public'   => true,
 		));
@@ -81,11 +81,8 @@ class Semantifyit_Dzt_Uri_Admin {
 		if (array_key_exists ($curScreenId, $post_types)) {
 			wp_register_style( 'prefix_css_ia', 'https://cdn.jsdelivr.net/gh/semantifyit/instant-annotator/css/instantAnnotations.css' );
 			wp_enqueue_style( 'prefix_css_ia' );
-
-			wp_register_style( 'prefix_css_ia_plugin', $path . 'css/ia_plugin.css');
-            wp_enqueue_style( 'prefix_css_ia_plugin' );
-            
-            wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/semantifyit-dzt-uri-admin.css', array(), $this->version, 'all' );
+			
+			wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/semantifyit-dzt-uri-admin.css', array(), $this->version, 'all' );
 		}
 	}
 
@@ -121,9 +118,9 @@ class Semantifyit_Dzt_Uri_Admin {
 			//wp_register_script( 'prefix_instantannotation', 'http://localhost:8080/main.js', array( 'jquery' ), time() );
 
 			wp_localize_script( 'prefix_instantannotation', 'myAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' )));
-            wp_enqueue_script( 'prefix_instantannotation' );
+      wp_enqueue_script( 'prefix_instantannotation' );
             
-            wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/semantifyit-dzt-uri-admin.js', array( 'jquery' ), $this->version, false );
+    	wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/semantifyit-dzt-uri-admin.js', array( 'jquery' ), $this->version, false );
 		}
 
     }
@@ -154,8 +151,7 @@ class Semantifyit_Dzt_Uri_Admin {
     }
     
     function meta_boxes_display( $post ) {
-		include_once 'partials/meta-boxes-display.php';
-	}
-
+			include_once 'partials/meta-boxes-display.php';
+		}
 
 }

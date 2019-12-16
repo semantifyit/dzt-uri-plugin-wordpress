@@ -30,15 +30,17 @@
             document.getElementById('sem-dzt-uri-ds-add').disabled = this.value === '';
         })
         document.getElementById('sem-dzt-uri-ds-add').addEventListener('click', function() {
-            var val = document.getElementById('sem-dzt-uri-ds-select').value;
+            var select = document.getElementById('sem-dzt-uri-ds-select');
+            var dsName = select.options[select.selectedIndex].text;
+            var val =select.value;
 
             var saveButton = {
                 name: "Get-URI",
                 icon: "done",
                 createJsonLD: true,
                 onclick: function (res) {
-                    console.log('click');
-                    console.log(res);
+                    // console.log('click');
+                    // console.log(res);
                     if(!res.jsonLd) {
                         return;
                     }
@@ -66,12 +68,13 @@
                 panelColClass: "col-md-4",
                 withSubClassSelection: false,
                 buttons: ['preview', saveButton],
+                title: dsName,
                 //annotation: sampleAnn, // TODO REMOVE
             };
 
             InstantAnnotation.createIABox('sem-dzt-uri-ia-boxes', val, options)
-            console.log(val);
-        })
+            // console.log(val);
+        });
     }
 
     function showSuccessModal(annotation) {
