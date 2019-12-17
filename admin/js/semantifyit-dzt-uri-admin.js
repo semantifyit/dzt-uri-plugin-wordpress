@@ -5,7 +5,7 @@
         loadDZTURI();
     });
 
-    var dztApiUrl = 'http://localhost:8080/api/entities';
+    var dztApiUrl = 'https://dzt.semantity.it/api/entities';
 
     /*var sampleAnn = { // TODO REMOVE
         "@context": "http://schema.org/",
